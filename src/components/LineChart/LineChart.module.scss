@@ -1,0 +1,8 @@
+@use "../../utilities" as v;
+
+.info {
+  text-align: center;
+  font-size: v.$font-p;
+  color: v.$secondary-color;
+  text-transform: uppercase;
+}

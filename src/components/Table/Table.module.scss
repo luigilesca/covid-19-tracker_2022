@@ -1,0 +1,33 @@
+@use "../../utilities" as v;
+
+.table {
+  margin-bottom: 20px;
+  margin-top: 30px;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 400px;
+  width: auto;
+  align-items: center;
+
+  tr {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: v.$bg-body;
+  }
+
+  td {
+    align-items: center;
+    display: flex;
+    padding: 0.5rem;
+    text-transform: capitalize;
+    color: v.$primary-color;
+  }
+
+  img {
+    width: 30px;
+    margin-left: 20px;
+  }
+}

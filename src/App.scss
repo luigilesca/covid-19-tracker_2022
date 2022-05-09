@@ -1,0 +1,16 @@
+@use "./utilities" as v;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: v.$font-standard;
+}
+
+body {
+  background-color: v.$bg-body;
+  position: relative;
+}

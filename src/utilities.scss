@@ -1,0 +1,59 @@
+// FONT TYPE GOOGLE FONTS
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+// FONT VARIABLES
+$font-standard: "Poppins", sans-serif;
+$font-h1: 2rem;
+$font-h2: 1.4rem;
+$font-h3: 1.1rem;
+$font-p: 1rem;
+$font-navbar: 1.3rem;
+$font-weight-navbar: 500;
+$font-color: #0b3b59;
+
+// COLOR VARIABLES
+$primary-color: #0b3b59;
+$secondary-color: #115d8c;
+$active-color: #9498f2;
+$bg-body: #f0f1f2;
+$bg-white: #fff;
+$box-shadow: 0px 0px 22px 2px rgba(219, 219, 219, 1);
+
+// LOADING
+@mixin loading {
+  margin: 40px auto;
+  text-align: center;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+// MEDIA QUERIES
+@mixin xxl {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (max-width: 1350px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin ms {
+  @media screen and (max-width: 390px) {
+    @content;
+  }
+}

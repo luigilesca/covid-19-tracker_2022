@@ -1,0 +1,106 @@
+@use "../../utilities" as v;
+
+.loading {
+  @include v.loading;
+}
+
+.container {
+  width: 80%;
+  margin-inline: auto;
+
+  h1 {
+    color: v.$primary-color;
+    text-transform: uppercase;
+    font-size: v.$font-h1;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  @include v.xl {
+    width: 90%;
+  }
+}
+
+.container_card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include v.lg {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  @include v.ms {
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.container_chart {
+  width: 100%;
+  padding: 25px;
+  background-color: v.$bg-white;
+  border-radius: 8px;
+}
+
+.chart_title {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  justify-content: space-between;
+  width: 80%;
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: v.$secondary-color;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: v.$font-h3;
+    color: v.$primary-color;
+  }
+
+  .button_box {
+    justify-content: space-between;
+    display: flex;
+
+    @include v.ms {
+      flex-direction: column;
+    }
+  }
+
+  h3 {
+    color: v.$primary-color;
+    font-size: v.$font-h3;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all ease 0.4s;
+    margin: 40px auto;
+
+    &:hover {
+      transform: scale(1.05);
+      color: v.$active-color;
+    }
+
+    @include v.ms {
+      margin: 20px auto;
+    }
+  }
+
+  .not_allow {
+    cursor: not-allowed;
+    pointer-events: none;
+    border-bottom: 3px solid v.$active-color;
+  }
+
+  .allow {
+    cursor: pointer;
+  }
+}

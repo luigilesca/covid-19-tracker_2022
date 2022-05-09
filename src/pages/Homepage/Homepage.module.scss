@@ -1,0 +1,99 @@
+@use "../../utilities" as v;
+
+.loading {
+  @include v.loading;
+}
+
+.homepage {
+  width: 100wh;
+
+  h1 {
+    color: v.$primary-color;
+    text-transform: uppercase;
+    font-size: v.$font-h1;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.dropdown {
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  margin-inline: auto;
+  gap: 2rem;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include v.lg {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.container_chart {
+  width: 100%;
+  grid-column: 1/3;
+}
+
+.container_card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  grid-column: 3/4;
+}
+
+.container_table {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  -webkit-box-shadow: v.$box-shadow;
+  grid-column: 1/4;
+  grid-row: 2/4;
+
+  h2 {
+    text-transform: uppercase;
+    color: v.$primary-color;
+  }
+}
+
+.chart {
+  justify-content: end;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+
+  h2 {
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: v.$primary-color;
+  }
+
+  @include v.lg {
+    margin-bottom: 20px;
+  }
+}
+
+.box {
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 40px;
+}
+
+.container_card_all {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+
+  @include v.lg {
+    grid-template-columns: 1fr;
+  }
+}

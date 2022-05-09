@@ -1,0 +1,38 @@
+@use "../../utilities" as v;
+
+.loading {
+  @include v.loading;
+}
+
+.container {
+  margin-inline: auto;
+
+  h1 {
+    color: v.$primary-color;
+    font-size: v.$font-h1;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+tr:nth-of-type(odd) {
+  background-color: v.$bg-body;
+}
+
+.row {
+  background-color: v.$secondary-color !important;
+  text-transform: uppercase;
+}
+
+.font {
+  font-size: v.$font-p !important;
+  text-transform: uppercase;
+}
+
+.font_header {
+  background-color: v.$secondary-color !important;
+  color: v.$bg-white !important;
+  font-size: v.$font-h3 !important;
+  font-weight: 600 !important;
+}

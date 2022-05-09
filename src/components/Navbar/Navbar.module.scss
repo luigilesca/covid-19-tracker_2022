@@ -1,0 +1,85 @@
+@use "../../utilities" as v;
+
+.navbar {
+  display: flex;
+  width: 100wh;
+  height: 4rem;
+  margin-bottom: 60px;
+  align-items: center;
+  justify-content: center;
+  color: v.$font-color;
+  background-color: v.$bg-white;
+  -webkit-box-shadow: 0px 17px 22px -14px rgba(219, 219, 219, 1);
+
+  @include v.lg {
+    width: 100wh;
+    height: auto;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+    cursor: pointer;
+    margin: 0 20px;
+    font-size: v.$font-navbar;
+    font-weight: v.$font-weight-navbar;
+    text-transform: uppercase;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: v.$primary-color;
+      transition: width 0.3s ease;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+
+.active {
+  color: v.$active-color;
+}
+
+.inactive {
+  color: v.$font-color;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+
+  @include v.lg {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+}
+
+.logo {
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  list-style: none;
+
+  @include v.lg {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

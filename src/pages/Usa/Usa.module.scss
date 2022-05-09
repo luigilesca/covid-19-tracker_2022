@@ -1,0 +1,71 @@
+@use "../../utilities" as v;
+
+.loading {
+  @include v.loading;
+}
+
+.container {
+  width: 80%;
+  margin-inline: auto;
+
+  h1 {
+    color: v.$primary-color;
+    font-size: v.$font-h1;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+.container_card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 50px;
+
+  @include v.lg {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  @include v.ms {
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.container_table {
+  margin-bottom: 70px;
+}
+
+.container_chart {
+  background-color: v.$bg-white;
+  display: flex;
+  border-radius: 8px;
+}
+
+.container_usa_chart {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-inline: auto;
+
+  h3 {
+    font-size: v.$font-h2;
+    color: v.$primary-color;
+    text-align: center;
+    margin: 20px auto;
+    text-transform: uppercase;
+  }
+
+  @include v.xl {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart_cases {
+  margin-bottom: 40px;
+}
