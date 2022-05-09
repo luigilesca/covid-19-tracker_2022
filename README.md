@@ -50,11 +50,11 @@
 
 
 
-This is a dashboard built by React that fetches COVID-19 data from  [DISEASE.SH](https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical__country_) free API. and displays them.
+This is a dashboard built with React that fetches and displays COVID-19 data from  [DISEASE.SH](https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical__country_) free API.
 
 
 This dashboard displays the following data: 
-  - page with world's cases, recovered,  deaths and history cases of lastt 30 days (home page).
+  - page with world's cases, recovered,  deaths and history cases of last 30 days (home page).
   - page with USA and relative states covid situation (USA page).
   - page with ITALY covid situation (ITALY page).
   
