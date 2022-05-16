@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import baseURL from '../../api/apiClient';
+
 import instance from '../../api/request';
-import axios from 'axios';
 import numeral from 'numeral';
 import styles from './LineChart.module.scss';
 
-import apiClient from '../../api/apiClient';
+import axios from 'axios';
 
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js';
@@ -79,7 +78,7 @@ function LineChart({ casesType }) {
   useEffect(() => {
     try {
       const fetchHistoryData = async () => {
-        const response = await apiClient.get(instance.fetchHistory);
+        const response = await axios.get(instance.fetchHistory);
 
         const data = response.data;
         console.log('LineChart', data);

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import styles from './Italy.module.scss';
+import classNames from 'classnames/bind';
 import numeral from 'numeral';
 
 import { Card, ItalyChart } from '../../components';
 
 import instance from '../../api/request';
-import apiClient from '../../api/apiClient';
-
-import classNames from 'classnames/bind';
+import axios from 'axios';
 
 function Italy() {
   const [italyData, setItalyData] = useState({});
@@ -28,7 +27,7 @@ function Italy() {
   useEffect(() => {
     try {
       const getItalyData = async () => {
-        const response = await apiClient.get(instance.fetchItalyData);
+        const response = await axios.get(instance.fetchItalyData);
         const data = response.data;
 
         // console.log("ITALY", data);
@@ -57,7 +56,7 @@ function Italy() {
   useEffect(() => {
     try {
       const getItalyHistory = async () => {
-        const response = await apiClient.get(instance.fetchItalyHistory);
+        const response = await axios.get(instance.fetchItalyHistory);
         const data = response.data.timeline;
         // console.log("ITALY HISTORY", data);
 

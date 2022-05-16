@@ -10,7 +10,7 @@ import axios from 'axios';
 // import baseURL, { all } from '../../api/apiClient';
 import instance from '../../api/request';
 
-import apiClient from '../../api/apiClient';
+// import apiClient from '../../api/apiClient';
 
 function Homepage() {
   const [countries, setCountries] = useState([]);
@@ -47,7 +47,7 @@ function Homepage() {
   useEffect(() => {
     try {
       const getCountriesData = async () => {
-        const response = await apiClient.get(instance.fetchAllCountries);
+        const response = await axios.get(instance.fetchAllCountries);
 
         const data = response.data;
         // console.log(data);
@@ -79,7 +79,7 @@ function Homepage() {
         ? `https://disease.sh/v3/covid-19/all`
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
-    const response = await apiClient.get(url);
+    const response = await axios.get(url);
     const data = response.data;
 
     setCountry(countryCode);
