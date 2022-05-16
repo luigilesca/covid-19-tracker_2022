@@ -7,9 +7,11 @@
 <br />
 <div >
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="assets/images/Homepage.png" alt="Logo" width="100%" height="100%" margin-bottom="100px">
+    <img src="src/image/image.png" alt="Logo" width="100%" height="100%" margin-bottom="100px">
     <br />
-    <img src="assets/images/Recipe.png" alt="Logo" width="100%" height="100%">
+    <img src="src/image/image.2.png" alt="Logo" width="100%" height="100%">
+     <br />
+    <img src="src/image/italy.png" alt="Logo" width="100%" height="100%">
   </a>
   
  
@@ -48,12 +50,14 @@
 
 
 
-This is a web app built by React that fetches vegetarian recipes from the [Spoonacular API](https://spoonacular.com/food-api) free API. and displays them.
+This is a dashboard built with React that fetches and displays COVID-19 data from  [DISEASE.SH](https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical__country_) free API.
 
 
-Users can search the recipe using the search-bar and saving them in the favourite section. 
-
-This app uses the localStorage, to let users keep their data in favourite section.
+This dashboard displays the following data: 
+  - page with world's cases, recovered,  deaths and history cases of last 30 days (home page).
+  - page with USA and relative states covid situation (USA page).
+  - page with ITALY covid situation (ITALY page).
+  
 
 Use the `BLANK_README.md` to get started.
 
@@ -63,11 +67,10 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 - [React](https://it.reactjs.org/)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage?retiredLocale=it)
-- [CSS modules](https://github.com/css-modules/css-modules)
-- [react-responsive](https://www.npmjs.com/package/react-responsive)
-- [axios](https://axios-http.com/docs/intro)
+- [SCSS](https://sass-lang.com/)
+- [CHARTJS](https://www.chartjs.org/docs/latest/)
+- [MATERIALUI](https://mui.com/)  
+- [AXIOS](https://axios-http.com/docs/intro)
 
 
 ## Getting Started
@@ -110,10 +113,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [@Luigi Lesca](https://www.linkedin.com/in/luigi-lesca/) - luigilesca@hotmail.it
 
-Project Repository: [foodApp_ReactRedux_2022
-](https://github.com/luigilesca/foodApp_React_2022.git)
+Project Repository: [covid-19-tracker_2022
+](https://github.com/luigilesca/covid-19-tracker_2022.git)
 
-Project Website: [Vegetarian App - Netlify](https://food-app-react-2022.netlify.app/)
+Project Website: [covid-19-tracker-2022-react - Netlify](https://covid-19-tracker-2022-react.netlify.app/)
 
 Portfolio: [Luigi Lesca-web-developer-portfolio](https://talent.start2impact.it/profile/luigi-lesca)
 
