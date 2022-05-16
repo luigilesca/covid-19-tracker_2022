@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import styles from "./Italy.module.scss";
-import numeral from "numeral";
+import styles from './Italy.module.scss';
+import numeral from 'numeral';
 
-import { Card, ItalyChart } from "../../components";
+import { Card, ItalyChart } from '../../components';
 
-import axios from "axios";
-import baseURL from "../../api/apiClient";
-import instance from "../../api/request";
+import axios from 'axios';
+import baseURL from '../../api/apiClient';
+import instance from '../../api/request';
+import apiClient from '../../api/apiClient';
 
 function Italy() {
   const [italyData, setItalyData] = useState({});
@@ -27,7 +28,7 @@ function Italy() {
   useEffect(() => {
     try {
       const getItalyData = async () => {
-        const response = await axios.get(baseURL + instance.fetchItalyData);
+        const response = await apiClient.get(instance.fetchItalyData);
         const data = response.data;
 
         // console.log("ITALY", data);
@@ -56,7 +57,7 @@ function Italy() {
   useEffect(() => {
     try {
       const getItalyHistory = async () => {
-        const response = await axios.get(baseURL + instance.fetchItalyHistory);
+        const response = await apiClient.get(instance.fetchItalyHistory);
         const data = response.data.timeline;
         // console.log("ITALY HISTORY", data);
 
@@ -81,22 +82,22 @@ function Italy() {
         <div className={styles.container_card}>
           <Card
             notActive
-            title="Cases"
+            title='Cases'
             todayCases={italyData.todayCases}
-            italyCases={numeral(italyData.cases).format("0.0a")}
+            italyCases={numeral(italyData.cases).format('0.0a')}
           />
 
           <Card
             notActive
-            title="Recovered"
+            title='Recovered'
             todayCases={italyData.todayRecovered}
-            italyCases={numeral(italyData.recovered).format("0.0a")}
+            italyCases={numeral(italyData.recovered).format('0.0a')}
           />
           <Card
             notActive
-            title="Deaths"
+            title='Deaths'
             todayCases={italyData.todayDeaths}
-            italyCases={numeral(italyData.deaths).format("0.0a")}
+            italyCases={numeral(italyData.deaths).format('0.0a')}
           />
         </div>
       )}

@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Homepage.module.scss";
-import { sortData, prettyPrintStat } from "../../components/util";
-import numeral from "numeral";
+import React, { useState, useEffect } from 'react';
+import styles from './Homepage.module.scss';
+import { sortData, prettyPrintStat } from '../../components/util';
+import numeral from 'numeral';
 
-import { MenuItem, Select, FormControl } from "@mui/material";
-import { Card, Table, LineChart } from "../../components";
-import axios from "axios";
+import { MenuItem, Select, FormControl } from '@mui/material';
+import { Card, Table, LineChart } from '../../components';
+import axios from 'axios';
 
-import baseURL from "../../api/apiClient";
-import instance from "../../api/request";
+import baseURL, { all } from '../../api/apiClient';
+import instance from '../../api/request';
+
+import apiClient from '../../api/apiClient';
 
 function Homepage() {
   const [countries, setCountries] = useState([]);
-  const [country, setCountry] = useState("worldwide");
+  const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [countryInfoAll, setCountryInfoAll] = useState({});
   const [tableData, setTableData] = useState([]);
   const [chart, setChart] = useState([]);
-  const [casesType, setCasesType] = useState("cases");
+  const [casesType, setCasesType] = useState('cases');
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,7 +27,7 @@ function Homepage() {
   useEffect(() => {
     try {
       const fetchAll = async () => {
-        const response = await axios.get(baseURL + instance.fetchAll);
+        const response = await apiClient.get(`/all`);
         const data = response.data;
 
         setCountryInfo(data);
@@ -43,7 +45,7 @@ function Homepage() {
   useEffect(() => {
     try {
       const getCountriesData = async () => {
-        const response = await axios.get(baseURL + instance.fetchAllCountries);
+        const response = await apiClient.get(instance.fetchAllCountries);
 
         const data = response.data;
         // console.log(data);
@@ -71,11 +73,11 @@ function Homepage() {
     // console.log(countryCode);
 
     const url =
-      countryCode === "worldwide"
-        ? baseURL + instance.fetchAll
-        : baseURL + instance.fetchAllCountries + `/${countryCode}`;
+      countryCode === 'worldwide'
+        ? `https://disease.sh/v3/covid-19/all`
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
-    const response = await axios.get(url);
+    const response = await apiClient.get(url);
     const data = response.data;
 
     setCountry(countryCode);
@@ -99,19 +101,19 @@ function Homepage() {
         {!isLoading && (
           <div className={styles.container_card}>
             <Card
-              isActive={casesType === "cases"}
-              title="Cases"
-              total={numeral(countryInfoAll.cases).format("0.0a")}
+              isActive={casesType === 'cases'}
+              title='Cases'
+              total={numeral(countryInfoAll.cases).format('0.0a')}
               cases={prettyPrintStat(countryInfoAll.todayCases)}
-              onClick={(e) => setCasesType("cases")}
+              onClick={(e) => setCasesType('cases')}
             />
 
             <Card
-              isActive={casesType === "deaths"}
-              title="Deaths"
-              total={numeral(countryInfoAll.deaths).format("0.0a")}
+              isActive={casesType === 'deaths'}
+              title='Deaths'
+              total={numeral(countryInfoAll.deaths).format('0.0a')}
               cases={prettyPrintStat(countryInfoAll.todayDeaths)}
-              onClick={(e) => setCasesType("deaths")}
+              onClick={(e) => setCasesType('deaths')}
             />
           </div>
         )}
@@ -123,11 +125,11 @@ function Homepage() {
           <FormControl>
             <Select
               className={styles.select}
-              variant="outlined"
+              variant='outlined'
               value={country}
               onChange={onCountryChange}
             >
-              <MenuItem value="worldwide">Worldwide</MenuItem>
+              <MenuItem value='worldwide'>Worldwide</MenuItem>
               {countries.map((country) => (
                 <MenuItem key={country.name} value={country.value}>
                   {country.name}
@@ -140,20 +142,20 @@ function Homepage() {
           <div className={styles.container_card_all}>
             <Card
               notActive
-              title="Cases"
-              total={numeral(countryInfo.cases).format("0.0a")}
+              title='Cases'
+              total={numeral(countryInfo.cases).format('0.0a')}
               cases={prettyPrintStat(countryInfo.todayCases)}
             />
             <Card
               notActive
-              title="Recovered"
-              total={numeral(countryInfo.recovered).format("0.0a")}
+              title='Recovered'
+              total={numeral(countryInfo.recovered).format('0.0a')}
               cases={prettyPrintStat(countryInfo.todayRecovered)}
             />
             <Card
               notActive
-              title="Deaths"
-              total={numeral(countryInfo.deaths).format("0.0a")}
+              title='Deaths'
+              total={numeral(countryInfo.deaths).format('0.0a')}
               cases={prettyPrintStat(countryInfo.todayDeaths)}
             />
           </div>

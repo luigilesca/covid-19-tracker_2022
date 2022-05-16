@@ -1,11 +1,12 @@
-import styles from "./Usa.module.scss";
-import numeral from "numeral";
-import { useState, useEffect } from "react";
-import { Card, TableUsa, UsaChart } from "../../components";
+import styles from './Usa.module.scss';
+import numeral from 'numeral';
+import { useState, useEffect } from 'react';
+import { Card, TableUsa, UsaChart } from '../../components';
 
-import axios from "axios";
-import baseURL from "../../api/apiClient";
-import instance from "../../api/request";
+import axios from 'axios';
+import baseURL from '../../api/apiClient';
+import instance from '../../api/request';
+import apiClient from '../../api/apiClient';
 
 function Usa() {
   const [usaInfo, setUsaInfo] = useState([]);
@@ -15,7 +16,7 @@ function Usa() {
   useEffect(() => {
     try {
       const fetchUsaData = async () => {
-        const response = await axios.get(baseURL + instance.fetchUsaData);
+        const response = await apiClient.get(instance.fetchUsaData);
         const data = response.data;
 
         // console.log("USA", data);
@@ -32,7 +33,7 @@ function Usa() {
   useEffect(() => {
     try {
       const getUsaHistory = async () => {
-        const response = await axios.get(baseURL + instance.fetchUsaHistory);
+        const response = await apiClient.get(instance.fetchUsaHistory);
         const data = response.data.timeline;
         // console.log("USA HISTORY", data);
 
@@ -57,21 +58,21 @@ function Usa() {
         <div className={styles.container_card}>
           <Card
             notActive
-            title="Cases"
+            title='Cases'
             todayCases={usaInfo.todayCases}
-            usaCases={numeral(usaInfo.cases).format("0.0a")}
+            usaCases={numeral(usaInfo.cases).format('0.0a')}
           />
           <Card
             notActive
-            title="Recovered"
+            title='Recovered'
             todayCases={usaInfo.todayRecovered}
-            usaCases={numeral(usaInfo.recovered).format("0.0a")}
+            usaCases={numeral(usaInfo.recovered).format('0.0a')}
           />
           <Card
             notActive
-            title="Deaths"
+            title='Deaths'
             todayCases={usaInfo.todayDeaths}
-            usaCases={numeral(usaInfo.deaths).format("0.0a")}
+            usaCases={numeral(usaInfo.deaths).format('0.0a')}
           />
         </div>
       )}

@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import baseURL from "../../api/apiClient";
-import instance from "../../api/request";
-import axios from "axios";
-import numeral from "numeral";
-import styles from "./LineChart.module.scss";
+import React, { useState, useEffect } from 'react';
+import baseURL from '../../api/apiClient';
+import instance from '../../api/request';
+import axios from 'axios';
+import numeral from 'numeral';
+import styles from './LineChart.module.scss';
 
-import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement } from "chart.js";
+import apiClient from '../../api/apiClient';
+
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 
@@ -21,21 +23,21 @@ const options = {
   },
   maintainAspectRatio: false,
   tooltips: {
-    mode: "index",
+    mode: 'index',
     intersect: false,
     callbacks: {
       label: function (tooltipItem) {
-        return numeral(tooltipItem.value).format("+0,0");
+        return numeral(tooltipItem.value).format('+0,0');
       },
     },
   },
   scales: {
     xAxes: [
       {
-        type: "time",
+        type: 'time',
         time: {
-          format: "MM/DD/YY",
-          tooltipFormat: "ll",
+          format: 'MM/DD/YY',
+          tooltipFormat: 'll',
         },
       },
     ],
@@ -47,7 +49,7 @@ const options = {
         ticks: {
           // Include a dollar sign in the ticks
           callback: function (value) {
-            return numeral(value).format("0a");
+            return numeral(value).format('0a');
           },
         },
       },
@@ -77,10 +79,10 @@ function LineChart({ casesType }) {
   useEffect(() => {
     try {
       const fetchHistoryData = async () => {
-        const response = await axios.get(baseURL + instance.fetchHistory);
+        const response = await apiClient.get(instance.fetchHistory);
 
         const data = response.data;
-        console.log("LineChart", data);
+        console.log('LineChart', data);
 
         let chartData = buildChartData(data, casesType);
         setData(chartData);
@@ -98,8 +100,8 @@ function LineChart({ casesType }) {
           data={{
             datasets: [
               {
-                backgroundColor: "#05DBF2",
-                borderColor: "#115D8C",
+                backgroundColor: '#05DBF2',
+                borderColor: '#115D8C',
                 data: data,
               },
             ],
