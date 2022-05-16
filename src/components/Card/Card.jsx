@@ -1,5 +1,6 @@
-import React from "react";
-import styles from "./Card.module.scss";
+import React from 'react';
+import styles from './Card.module.scss';
+import classNames from 'classnames/bind';
 
 function Card({
   notActive,
@@ -17,19 +18,19 @@ function Card({
 }) {
   return (
     <div
-      className={`${styles.card} ${isActive && styles.selected} ${notActive && styles.italy} `}
+      className={classNames(styles.card, isActive && styles.selected, notActive && styles.italy)}
       onClick={props.onClick}
     >
       <div className={styles.info}>
         <h2>{title}</h2>
         <h3>
-          Total :{" "}
+          Total :{' '}
           <strong>
             {total} {italyCases} {usaCases}
           </strong>
         </h3>
         <h3>
-          Today :{" "}
+          Today :{' '}
           <strong>
             {cases} {todayCases} {todayRecovered} {todayDeaths}
           </strong>

@@ -4,9 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, TableUsa, UsaChart } from '../../components';
 
 import axios from 'axios';
-import baseURL from '../../api/apiClient';
 import instance from '../../api/request';
-import apiClient from '../../api/apiClient';
 
 function Usa() {
   const [usaInfo, setUsaInfo] = useState([]);
@@ -16,7 +14,7 @@ function Usa() {
   useEffect(() => {
     try {
       const fetchUsaData = async () => {
-        const response = await apiClient.get(instance.fetchUsaData);
+        const response = await axios.get(instance.fetchUsaData);
         const data = response.data;
 
         // console.log("USA", data);
@@ -33,7 +31,7 @@ function Usa() {
   useEffect(() => {
     try {
       const getUsaHistory = async () => {
-        const response = await apiClient.get(instance.fetchUsaHistory);
+        const response = await axios.get(instance.fetchUsaHistory);
         const data = response.data.timeline;
         // console.log("USA HISTORY", data);
 

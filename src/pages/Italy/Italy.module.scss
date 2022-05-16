@@ -1,4 +1,4 @@
-@use "../../utilities" as v;
+@use '../../utilities' as v;
 
 .loading {
   @include v.loading;

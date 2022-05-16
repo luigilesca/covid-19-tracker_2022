@@ -5,10 +5,10 @@ import numeral from 'numeral';
 
 import { Card, ItalyChart } from '../../components';
 
-import axios from 'axios';
-import baseURL from '../../api/apiClient';
 import instance from '../../api/request';
 import apiClient from '../../api/apiClient';
+
+import classNames from 'classnames/bind';
 
 function Italy() {
   const [italyData, setItalyData] = useState({});
@@ -109,7 +109,8 @@ function Italy() {
           {/* CASES FALSE */}
           <div className={styles.button_box}>
             <h3
-              className={`${styles.button} ${chartCases ? styles.not_allow : styles.allow} `}
+              className={classNames(styles.button, chartCases ? styles.not_allow : styles.allow)}
+              // className={`${styles.button} ${chartCases ? styles.not_allow : styles.allow} `}
               onClick={toggleChart}
             >
               Cases
@@ -117,7 +118,8 @@ function Italy() {
 
             {/* DEATHS TRUE */}
             <h3
-              className={`${styles.button} ${chartDeaths ? styles.not_allow : styles.allow} `}
+              className={classNames(styles.button, chartDeaths ? styles.not_allow : styles.allow)}
+              // className={`${styles.button} ${chartDeaths ? styles.not_allow : styles.allow} `}
               onClick={toggleChart}
             >
               Deaths

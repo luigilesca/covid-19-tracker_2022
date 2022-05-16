@@ -25,45 +25,23 @@ function Homepage() {
 
   // Get All Data
 
-  const fetchAll = async () => {
+  useEffect(() => {
     try {
-      const response = await apiClient(`/all`);
-      console.log(response);
-      if (response) {
+      const fetchAll = async () => {
+        const response = await axios.get(instance.fetchAll);
+
         const data = response.data;
 
         setCountryInfo(data);
         setCountryInfoAll(data);
         setChart(data);
         setIsLoading(false);
-      }
+      };
+      fetchAll();
     } catch (error) {
       console.log(error);
     }
-  };
-
-  // Get All Data
-  useEffect(() => {
-    fetchAll();
   }, []);
-
-  // useEffect(() => {
-  //   try {
-  //     const fetchAll = async () => {
-  //       const response = await apiClient.get(instance.fetchAll);
-
-  //       const data = response.data;
-
-  //       setCountryInfo(data);
-  //       setCountryInfoAll(data);
-  //       setChart(data);
-  //       setIsLoading(false);
-  //     };
-  //     fetchAll();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
 
   // Get ALl Countries Data
   useEffect(() => {
