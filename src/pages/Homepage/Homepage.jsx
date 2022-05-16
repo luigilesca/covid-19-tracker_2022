@@ -7,7 +7,7 @@ import { MenuItem, Select, FormControl } from '@mui/material';
 import { Card, Table, LineChart } from '../../components';
 import axios from 'axios';
 
-import baseURL, { all } from '../../api/apiClient';
+// import baseURL, { all } from '../../api/apiClient';
 import instance from '../../api/request';
 
 import apiClient from '../../api/apiClient';
@@ -24,22 +24,46 @@ function Homepage() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Get All Data
-  useEffect(() => {
+
+  const fetchAll = async () => {
     try {
-      const fetchAll = async () => {
-        const response = await apiClient.get(`/all`);
+      const response = await apiClient(`/all`);
+      console.log(response);
+      if (response) {
         const data = response.data;
 
         setCountryInfo(data);
         setCountryInfoAll(data);
         setChart(data);
         setIsLoading(false);
-      };
-      fetchAll();
+      }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // Get All Data
+  useEffect(() => {
+    fetchAll();
   }, []);
+
+  // useEffect(() => {
+  //   try {
+  //     const fetchAll = async () => {
+  //       const response = await apiClient.get(instance.fetchAll);
+
+  //       const data = response.data;
+
+  //       setCountryInfo(data);
+  //       setCountryInfoAll(data);
+  //       setChart(data);
+  //       setIsLoading(false);
+  //     };
+  //     fetchAll();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   // Get ALl Countries Data
   useEffect(() => {

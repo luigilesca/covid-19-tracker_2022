@@ -10,3 +10,5 @@ const instance = {
 };
 
 export default instance;
+
+// fetchAll: `${process.env.REACT_APP_BASE_URL}/all`,
